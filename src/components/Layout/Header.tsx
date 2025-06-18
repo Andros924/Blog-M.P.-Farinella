@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { PenTool, Home, FileText, Settings, LogOut } from 'lucide-react';
+import { PenTool, Home, FileText, User, Settings, LogOut } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
 interface HeaderProps {
@@ -45,6 +45,18 @@ export const Header: React.FC<HeaderProps> = ({ isAuthenticated, onSignOut }) =>
             >
               <Home className="h-4 w-4" />
               <span>Home</span>
+            </Link>
+
+            <Link
+              to="/about"
+              className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                isActive('/about') 
+                  ? 'text-accent-600 bg-accent-50' 
+                  : 'text-journalist-600 hover:text-accent-600 hover:bg-gray-50'
+              }`}
+            >
+              <User className="h-4 w-4" />
+              <span>Chi sono</span>
             </Link>
             
             <Link

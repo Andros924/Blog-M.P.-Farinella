@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Layout/Header';
 import { Footer } from './components/Layout/Footer';
 import { Home } from './pages/Home';
+import { About } from './pages/About';
 import { Articles } from './pages/Articles';
 import { Login } from './pages/Login';
 import { Admin } from './pages/Admin';
@@ -57,6 +58,7 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/articles" element={<Articles />} />
             <Route 
               path="/login" 

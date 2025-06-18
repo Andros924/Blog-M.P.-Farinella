@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Award, Users, BookOpen } from 'lucide-react';
+import { ArrowRight, Award, Users, BookOpen, Globe, Camera, Mic } from 'lucide-react';
 import { ArticleCard } from '../components/Articles/ArticleCard';
 import { supabase } from '../lib/supabase';
 import { Article } from '../types';
@@ -50,9 +50,10 @@ export const Home: React.FC = () => {
             <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">
               Maria Pia Farinella
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Giornalista d'inchiesta specializzata in investigazioni approfondite 
-              che portano alla luce verità nascoste e storie che contano.
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+              Giornalista e autrice siciliana con una lunga carriera dedicata all'approfondimento 
+              internazionale e alla cultura. Caporedattrice Rai per oltre vent'anni, 
+              inviata nei luoghi chiave della storia contemporanea.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -62,12 +63,12 @@ export const Home: React.FC = () => {
                 Leggi gli Articoli
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
-              <a
-                href="#about"
+              <Link
+                to="/about"
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-journalist-800 transition-colors"
               >
                 Scopri di più
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -76,27 +77,34 @@ export const Home: React.FC = () => {
       {/* Stats Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="bg-accent-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BookOpen className="h-8 w-8 text-accent-600" />
+                <Mic className="h-8 w-8 text-accent-600" />
               </div>
-              <h3 className="text-3xl font-bold text-journalist-800 mb-2">150+</h3>
-              <p className="text-gray-600">Articoli Pubblicati</p>
+              <h3 className="text-3xl font-bold text-journalist-800 mb-2">25+</h3>
+              <p className="text-gray-600">Anni di Carriera</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-accent-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Globe className="h-8 w-8 text-accent-600" />
+              </div>
+              <h3 className="text-3xl font-bold text-journalist-800 mb-2">4</h3>
+              <p className="text-gray-600">Continenti Visitati</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-accent-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Camera className="h-8 w-8 text-accent-600" />
+              </div>
+              <h3 className="text-3xl font-bold text-journalist-800 mb-2">20+</h3>
+              <p className="text-gray-600">Documentari Rai</p>
             </div>
             <div className="text-center">
               <div className="bg-accent-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-accent-600" />
               </div>
-              <h3 className="text-3xl font-bold text-journalist-800 mb-2">5</h3>
-              <p className="text-gray-600">Premi Giornalistici</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-accent-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-accent-600" />
-              </div>
-              <h3 className="text-3xl font-bold text-journalist-800 mb-2">10K+</h3>
-              <p className="text-gray-600">Lettori Mensili</p>
+              <h3 className="text-3xl font-bold text-journalist-800 mb-2">3</h3>
+              <p className="text-gray-600">Premi Nazionali</p>
             </div>
           </div>
         </div>
@@ -134,19 +142,25 @@ export const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-serif font-bold text-journalist-800 mb-6">
-                Chi sono
+                Chi è Maria Pia Farinella
               </h2>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                Con oltre 15 anni di esperienza nel giornalismo investigativo, 
-                mi dedico a portare alla luce storie che altrimenti rimarrebbero 
-                nell'ombra. La mia missione è quella di informare il pubblico 
-                con rigore, precisione e indipendenza.
+                Maria Pia Farinella è una giornalista e autrice siciliana con una lunga carriera 
+                dedicata all'approfondimento internazionale e alla cultura. Nata a Petralia Sottana (PA), 
+                ha conseguito due lauree con lode in Lingue e Letterature (inglese e spagnola) 
+                all'Università di Palermo, oltre a un diploma in Filología Hispánica conseguito a Salamanca.
               </p>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                Specializzata in inchieste su corruzione, criminalità organizzata 
-                e questioni sociali, ho collaborato con le principali testate 
-                nazionali e internazionali, ricevendo riconoscimenti per il mio 
-                lavoro di investigazione.
+                Dagli anni '80 ha collaborato con Radio Rai e il Giornale di Sicilia, ma è soprattutto 
+                in Rai che si è affermata: per oltre vent'anni è stata caporedattrice e inviata della 
+                rubrica <em>Mediterraneo</em>, una coproduzione internazionale tra Rai, France Télévisions, 
+                ERT e altri partner del bacino mediterraneo.
+              </p>
+              <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+                I suoi reportage l'hanno portata nei luoghi chiave della storia contemporanea, 
+                dal Medio Oriente all'Africa Subsahariana. Femminista, europeista, appassionata 
+                di diritti e cultura, oggi è anche attivamente impegnata nella formazione 
+                giornalistica e nelle istituzioni della categoria.
               </p>
               <Link
                 to="/about"
@@ -163,7 +177,7 @@ export const Home: React.FC = () => {
                 className="rounded-lg shadow-lg"
               />
               <div className="absolute -bottom-6 -right-6 bg-accent-600 text-white p-6 rounded-lg">
-                <p className="font-semibold">15+ anni</p>
+                <p className="font-semibold">25+ anni</p>
                 <p className="text-sm">di esperienza</p>
               </div>
             </div>
@@ -171,9 +185,64 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Awards Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-serif font-bold text-journalist-800 mb-4">
+              Premi e Riconoscimenti
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Una carriera riconosciuta a livello nazionale per l'eccellenza nel giornalismo culturale e internazionale.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="h-8 w-8 text-yellow-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-journalist-800 mb-2">
+                Premio Troccoli-Magna Graecia
+              </h3>
+              <p className="text-gray-600 mb-2">2018</p>
+              <p className="text-sm text-gray-500">
+                Per l'alto valore del giornalismo culturale e televisivo
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-journalist-800 mb-2">
+                Cittadinanza Onoraria
+              </h3>
+              <p className="text-gray-600 mb-2">Cassano allo Ionio, 2018</p>
+              <p className="text-sm text-gray-500">
+                Per l'impegno nella promozione del territorio calabrese
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <BookOpen className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-journalist-800 mb-2">
+                Prima Fiduciaria Casagit
+              </h3>
+              <p className="text-gray-600 mb-2">Sicilia, 2021</p>
+              <p className="text-sm text-gray-500">
+                Prima donna eletta fiduciaria regionale in Sicilia
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Recent Articles */}
       {recentArticles.length > 0 && (
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center mb-12">
               <h2 className="text-3xl font-serif font-bold text-journalist-800">
