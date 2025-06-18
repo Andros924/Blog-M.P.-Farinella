@@ -36,6 +36,9 @@ export const Home: React.FC = () => {
       setRecentArticles(recent || []);
     } catch (error) {
       console.error('Error fetching articles:', error);
+      // Set empty arrays as fallback
+      setFeaturedArticles([]);
+      setRecentArticles([]);
     } finally {
       setLoading(false);
     }
@@ -111,7 +114,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Featured Articles */}
-      {featuredArticles.length > 0 && (
+      {!loading && featuredArticles.length > 0 && (
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
@@ -175,6 +178,10 @@ export const Home: React.FC = () => {
                 src="/IMG-20230922-WA0000.jpg"
                 alt="Maria Pia Farinella"
                 className="rounded-lg shadow-lg w-full"
+                onError={(e) => {
+                  // Fallback to a placeholder if the image fails to load
+                  (e.target as HTMLImageElement).src = "https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800";
+                }}
               />
               <div className="absolute -bottom-6 -right-6 bg-accent-600 text-white p-6 rounded-lg">
                 <p className="font-semibold">25+ anni</p>
@@ -241,7 +248,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Recent Articles */}
-      {recentArticles.length > 0 && (
+      {!loading && recentArticles.length > 0 && (
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center mb-12">
