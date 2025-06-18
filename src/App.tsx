@@ -5,6 +5,7 @@ import { Footer } from './components/Layout/Footer';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Articles } from './pages/Articles';
+import { ArticleDetail } from './pages/ArticleDetail';
 import { Login } from './pages/Login';
 import { Admin } from './pages/Admin';
 import { ArticleEditor } from './pages/ArticleEditor';
@@ -60,6 +61,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/articles" element={<Articles />} />
+            <Route path="/articles/:slug" element={<ArticleDetail />} />
             <Route 
               path="/login" 
               element={
