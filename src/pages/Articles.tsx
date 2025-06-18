@@ -32,10 +32,11 @@ export const Articles: React.FC = () => {
         throw error;
       }
 
-      setArticles(data || []);
+      const articlesData = (data || []) as Article[];
+      setArticles(articlesData);
       
       // Extract unique categories
-      const uniqueCategories = [...new Set(data?.map(article => article.category).filter(Boolean) || [])];
+      const uniqueCategories = [...new Set(articlesData.map((article: Article) => article.category).filter(Boolean))] as string[];
       setCategories(uniqueCategories);
     } catch (error) {
       console.error('Error fetching articles:', error);

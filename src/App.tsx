@@ -10,6 +10,7 @@ import { Login } from './pages/Login';
 import { Admin } from './pages/Admin';
 import { ArticleEditor } from './pages/ArticleEditor';
 import { supabase } from './lib/supabase';
+import type { Session } from '@supabase/supabase-js';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -17,7 +18,7 @@ function App() {
 
   useEffect(() => {
     // Check initial auth state
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(({ data: { session } }: { data: { session: Session | null } }) => {
       setIsAuthenticated(!!session);
       setLoading(false);
     });
@@ -25,7 +26,7 @@ function App() {
     // Listen for auth changes
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = supabase.auth.onAuthStateChange((_event: any, session: Session | null) => {
       setIsAuthenticated(!!session);
     });
 
