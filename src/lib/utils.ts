@@ -26,7 +26,7 @@ export const createSlug = (title: string) => {
     .replace(/[^a-z0-9 -]/g, '')
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-')
-    .trim('-');
+    .replace(/^-+|-+$/g, '');
 };
 
 export const truncateText = (text: string, maxLength: number) => {

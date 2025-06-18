@@ -5,7 +5,7 @@ export interface Article {
   excerpt: string;
   featured_image?: string;
   published: boolean;
-  published_at?: string;
+  published_at?: string | null;
   created_at: string;
   updated_at: string;
   slug: string;
