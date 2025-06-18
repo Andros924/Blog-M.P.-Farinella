@@ -172,9 +172,9 @@ export const Home: React.FC = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/IMG-20230922-WA0000.jpg"
                 alt="Maria Pia Farinella"
-                className="rounded-lg shadow-lg"
+                className="rounded-lg shadow-lg w-full"
               />
               <div className="absolute -bottom-6 -right-6 bg-accent-600 text-white p-6 rounded-lg">
                 <p className="font-semibold">25+ anni</p>
