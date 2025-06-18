@@ -3,6 +3,8 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
+let supabase: any;
+
 if (!supabaseUrl || !supabaseAnonKey) {
   console.warn('Supabase environment variables are missing. Some features may not work properly.');
   
@@ -39,9 +41,9 @@ if (!supabaseUrl || !supabaseAnonKey) {
     })
   };
   
-  export const supabase = mockClient as any;
+  supabase = mockClient;
 } else {
-  export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+  supabase = createClient(supabaseUrl, supabaseAnonKey);
 }
 
 // Auth helpers
@@ -74,3 +76,5 @@ export const getCurrentUser = async () => {
   const { data: { user }, error } = await supabase.auth.getUser();
   return { user, error };
 };
+
+export { supabase };
